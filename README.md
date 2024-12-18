@@ -5,13 +5,12 @@
   </a>
 </p>
 
-> **Nota:** Clique no link ou na imagem acima. Para abrir em uma nova aba, pressione `Ctrl + Clique` (ou `Cmd + Clique` no Mac).
-
 Este projeto apresenta uma tradução dos Evangelhos do Aramaico Siríaco para o Português do Brasil, com o objetivo de fornecer uma versão acessível e fiel aos textos originais. Desenvolvido com Django, este projeto busca oferecer uma experiência de leitura moderna e intuitiva.
 
 ## ✨ Site Oficial (Demonstração)
 
 <a href="https://evangelhos.netsarym.com.br" target="_blank">Evangelhos Aramaico Siríaco</a>
+> **Nota:** Clique no link ou na imagem acima. Para abrir em uma nova aba, pressione `Ctrl + Clique` (ou `Cmd + Clique` no Mac).
 
 ## ✨ Funcionalidades Principais
 
