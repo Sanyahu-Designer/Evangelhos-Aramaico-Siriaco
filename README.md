@@ -25,7 +25,7 @@ Este projeto apresenta uma tradução dos Evangelhos do Aramaico Siríaco para o
 - **Painel Administrativo:** Interface administrativa para gerenciar livros, capítulos, versículos e traduções específicas.
 - **Monitoramento de Cache:** Dashboard para monitorar o desempenho do cache e otimizar a performance da aplicação.
 
-## 🛠️ Tecnologias Utilizadas
+## 🔧 Tecnologias Utilizadas
 
 - **Backend:** Django (Python)
 - **Frontend:** HTML, CSS, JavaScript, Bootstrap
@@ -53,27 +53,34 @@ Este projeto apresenta uma tradução dos Evangelhos do Aramaico Siríaco para o
    cd Biblia-Aramaico-Portugues
    ```
 
-5. Instale as dependências:
+5. Copie o arquivo de exemplo do ambiente e configure as variáveis de ambiente:
+   - Renomeie o arquivo `.env.example` para `.env`:
+     ```bash
+     mv .env.example .env
+     ```
+   - Abra o arquivo `.env` e insira os dados do banco de dados e outras configurações necessárias.
+
+6. Instale as dependências:
    ```bash
    pip install -r requirements.txt
    ```
 
-6. Configure o banco de dados MariaDB:
+7. Configure o banco de dados MariaDB:
    - Certifique-se de que o MariaDB está instalado e em execução.
-   - Crie um banco de dados para o projeto e configure as credenciais no arquivo `settings.py`.
+   - Crie um banco de dados para o projeto e configure as credenciais no arquivo `.env`.
 
-7. Crie as migrações:
+8. Crie as migrações:
    ```bash
    python manage.py makemigrations
    python manage.py migrate
    ```
 
-8. Inicie o servidor:
+9. Inicie o servidor:
    ```bash
    python manage.py runserver
    ```
 
-9. Acesse a aplicação no seu navegador: `http://localhost:8000`
+10. Acesse a aplicação no seu navegador: `http://localhost:8000`
 
 ## 🤝 Contribuições
 
