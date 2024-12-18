@@ -5,9 +5,9 @@
 
 Este projeto apresenta uma tradução dos Evangelhos do Aramaico Siríaco para o Português do Brasil, com o objetivo de fornecer uma versão acessível e fiel aos textos originais. Desenvolvido com Django, este projeto busca oferecer uma experiência de leitura moderna e intuitiva.
 
-## ✨ Site Oficial (Domonstração)
+## ✨ Site Oficial (Demonstração)
 
-<a href="https://evangelhos.netsarym.com.br">Evangelhos Aramaico Siríaco</a>
+<a href="https://evangelhos.netsarym.com.br" target="_blank">Evangelhos Aramaico Siríaco</a>
 
 ## ✨ Funcionalidades Principais
 
