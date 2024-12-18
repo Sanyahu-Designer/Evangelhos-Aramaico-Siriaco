@@ -6,7 +6,7 @@ class UserPreference(models.Model):
     THEME_CHOICES = [
         ('light', 'Light'),
         ('dark', 'Dark'),
-    ]
+        ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='preferences')
     theme = models.CharField(max_length=10, choices=THEME_CHOICES, default='light')

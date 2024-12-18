@@ -15,7 +15,7 @@ class PreferencesService:
             'show_pronunciation': prefs.show_pronunciation,
             'show_word_analysis': prefs.show_word_analysis
         }
-    
+        
     @staticmethod
     def update_preferences(user_id: int, **preferences) -> UserPreference:
         """Update user preferences."""
@@ -25,7 +25,7 @@ class PreferencesService:
                 setattr(prefs, key, value)
         prefs.save()
         return prefs
-    
+        
     @staticmethod
     def reset_preferences(user_id: int) -> UserPreference:
         """Reset user preferences to defaults."""

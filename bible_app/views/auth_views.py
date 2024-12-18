@@ -9,12 +9,8 @@ class CustomLogoutView(auth_views.LogoutView):
     Custom logout view that handles both admin and regular user logouts
     """
     template_name = 'registration/logged_out.html'
-    
-    def get_next_page(self):
-        """
-        Override to ensure proper redirect after logout
-        """
-        next_page = super().get_next_page()
-        if next_page:
-            return next_page
-        return '/'
+        
+    def post(self, request, *args, **kwargs):
+        return self.logout(request)
+
+__all__ = ['CustomLogoutView']

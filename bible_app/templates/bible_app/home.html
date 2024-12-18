@@ -31,6 +31,29 @@
         line-height: 1.6;
         margin-bottom: 1rem;
     }
+    .important-notice {
+        max-width: 800px;
+        margin: 2rem auto 3rem;
+        padding: 2rem;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+    .important-notice h2 {
+        color: #4682b4;
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+    .important-notice p {
+        color: #495057;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+        text-align: justify;
+    }
+    .important-notice p:last-child {
+        margin-bottom: 0;
+    }
 </style>
 {% endblock %}
 
@@ -124,6 +147,13 @@
         {% else %}
         <div class="text-center mt-5">
             <h2 class="h3">Selecione um livro e capítulo para visualizar os versículos</h2>
+            
+            <div class="important-notice">
+                <h2>Aviso Importante</h2>
+                <p>Estamos dedicando nossos esforços diariamente para oferecer traduções diretas do aramaico para o português. Esse é um processo cuidadoso e minucioso, que busca garantir a precisão e fidelidade dos textos. As traduções são realizadas a partir dos manuscritos antigos, como os Evangelhos Curetonianos Siríacos, o Palimpsesto Sinaítico Siríaco Antigo e a Peshitta.</p>
+                <p>A princípio, serão traduzidos apenas os manuscritos dos livros de Mateus, Marcos, Lucas e João. Vale ressaltar que a tradução de um único versículo pode levar dias para ser concluída corretamente, devido ao cuidado necessário com cada palavra e significado.</p>
+                <p>Agradecemos a sua compreensão e paciência enquanto trabalhamos para entregar um conteúdo de qualidade e com o máximo de autenticidade.</p>
+            </div>
         </div>
         {% endif %}
     </section>
@@ -134,7 +164,6 @@
 <script>
     const selectedChapterId = '{{ selected_chapter_id }}';
 </script>
-<script src="{% static 'js/debug.js' %}"></script>
 <script src="{% static 'js/bible_navigation.js' %}"></script>
 <script src="{% static 'bible_app/js/verse_interactions.js' %}"></script>
 <script src="{% static 'js/tooltip.js' %}"></script>

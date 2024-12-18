@@ -13,18 +13,40 @@
     <link href="{% static 'css/bible_styles.css' %}" rel="stylesheet">
     <link href="{% static 'css/tooltip.css' %}" rel="stylesheet">
     <style>
+        /* Dropdown Menu Improvements */
+        .dropdown-menu {
+            padding: 0.5rem 0;
+            margin-top: 0.25rem;
+        }
+
+        .dropdown-item {
+            padding: 0.5rem 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                padding: 0.75rem 0;
+                min-width: 200px;
+            }
+            
+            .dropdown-item {
+                padding: 0.75rem 1.25rem;
+            }
+        }
+
+        /* Tema Light - Navbar e Rodapé em Azul Moderno */
         .navbar {
-            background-color: #4682b4 !important;
+            background-color: #3498db !important;
         }
         .footer {
-            background-color: #4682b4 !important;
+            background-color: #3498db !important;
             padding: 1rem 0;
             margin-top: 3rem;
-            border-top: 1px solid #dee2e6;
-            color: #ffffff;
+            border-top: 1px solid #2980b9;
+            color: #fff;
         }
         .footer a {
-            color: #ffffff;
+            color: #fff;
             text-decoration: none;
         }
         .footer a:hover {
@@ -42,10 +64,77 @@
         .verse-actions .btn:hover {
             transform: translateY(-1px);
         }
+
+        /* Tema Dark */
+        body[data-theme="dark"] {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        body[data-theme="dark"] .navbar {
+            background-color: #333 !important;
+        }
+        body[data-theme="dark"] .footer {
+            background-color: #333 !important;
+            padding: 1rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid #555;
+            color: #fff;
+        }
+        body[data-theme="dark"] .card {
+            background-color: #2b2b2b;
+            color: #e0e0e0;
+        }
+        body[data-theme="dark"] .card-header {
+            background-color: #333;
+            color: #e0e0e0;
+        }
+        body[data-theme="dark"] .verse-metadata {
+            color: #999;
+        }
+        body[data-theme="dark"] .translator-note {
+            background-color: #333;
+            border-left-color: #999;
+            color: #e0e0e0;
+        }
+        body[data-theme="dark"] .translator-note-header {
+            color: #e0e0e0;
+        }
+        body[data-theme="dark"] .text-muted {
+            color: #999 !important;
+        }
+        body[data-theme="dark"] .form-select,
+        body[data-theme="dark"] .form-control {
+            background-color: #333;
+            color: #e0e0e0;
+            border-color: #555;
+        }
+        body[data-theme="dark"] .form-select:focus,
+        body[data-theme="dark"] .form-control:focus {
+            border-color: #66afe9;
+            box-shadow: 0 0 0 0.2rem rgba(102, 175, 233, 0.25);
+        }
+        body[data-theme="dark"] .btn-outline-primary {
+            color: #66afe9;
+            border-color: #66afe9;
+        }
+        body[data-theme="dark"] .btn-outline-primary:hover {
+            background-color: #66afe9;
+            color: #fff;
+        }
+        body[data-theme="dark"] .important-notice {
+            background-color: #333;
+            box-shadow: 0 2px 15px rgba(255,255,255,0.05);
+        }
+        body[data-theme="dark"] .important-notice h2 {
+            color: #66afe9;
+        }
+        body[data-theme="dark"] .important-notice p {
+            color: #e0e0e0;
+        }
     </style>
     {% block extra_css %}{% endblock %}
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100" data-theme="{% if request.COOKIES.theme %}{{ request.COOKIES.theme }}{% else %}light{% endif %}">
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="/">Evangelhos Aramaico Siríaco</a>
@@ -56,6 +145,22 @@
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="/">Início</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle"></i>
+                            Tema
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li>
+                                <button class="dropdown-item" onclick="toggleTheme()">
+                                    <i class="bi bi-moon-stars-fill"></i>
+                                    Alternar Tema
+                                </button>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -82,6 +187,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{% static 'js/bible_navigation.js' %}"></script>
     <script src="{% static 'js/tooltip.js' %}"></script>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            fetch('/update-theme/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({ theme: newTheme })
+            });
+        }
+    </script>
     {% block extra_js %}{% endblock %}
 </body>
 </html>
