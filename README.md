@@ -50,7 +50,7 @@ Este projeto apresenta uma tradução dos Evangelhos do Aramaico Siríaco para o
 
 4. Navegue até o diretório do projeto:
    ```bash
-   cd Biblia-Aramaico-Portugues
+   cd Evangelhos-Aramaico-Siriaco
    ```
 
 5. Copie o arquivo de exemplo do ambiente e configure as variáveis de ambiente:
