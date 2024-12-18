@@ -1,6 +1,8 @@
 # Evangelhos Aramaico Siríaco
 <p align="center">
-  <img src="https://placehold.co/400x200/3498db/ffffff?text=Evangelhos+Aramaico+Siriaco" alt="Project Logo" width="400"/>
+  <a href="https://evangelhos.netsarym.com.br" target="_blank">
+    <img src="https://placehold.co/400x200/3498db/ffffff?text=Evangelhos+Aramaico+Siriaco" alt="Evangelhos Aramaico Siriaco" width="400"/>
+  </a>
 </p>
 
 Este projeto apresenta uma tradução dos Evangelhos do Aramaico Siríaco para o Português do Brasil, com o objetivo de fornecer uma versão acessível e fiel aos textos originais. Desenvolvido com Django, este projeto busca oferecer uma experiência de leitura moderna e intuitiva.
