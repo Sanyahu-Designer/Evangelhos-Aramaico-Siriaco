@@ -29,34 +29,51 @@ Este projeto apresenta uma tradução dos Evangelhos do Aramaico Siríaco para o
 
 - **Backend:** Django (Python)
 - **Frontend:** HTML, CSS, JavaScript, Bootstrap
-- **Banco de Dados:** MySQL
+- **Banco de Dados:** MariaDB
 - **Cache:** Redis
 - **Servidor:** WhiteNoise
 
 ## ⚙️ Como Executar o Projeto
 
-1.  Clone o repositório:
-    ```bash
-    git clone https://github.com/Sanyahu-Designer/Biblia-Aramaico-Portugues.git
-        ```
-2.  Navegue até o diretório do projeto:
-    ```bash
-    cd Biblia-Aramaico-Portugues
-        ```
-3.  Instale as dependências:
-    ```bash
-    pip install -r requirements.txt
-        ```
-4.  Crie as migrações:
-    ```bash
-    python manage.py makemigrations
-    python manage.py migrate
-        ```
-5.  Inicie o servidor:
-    ```bash
-    python manage.py runserver
-        ```
-6.  Acesse a aplicação no seu navegador: `http://localhost:8000`
+1. Abra o Visual Studio Code.
+
+2. Clone o repositório diretamente no VS Code:
+   - Vá até o menu `Fonte de Controle` (ícone de ramificação no lado esquerdo).
+   - Clique em `Clonar Repositório`.
+   - Insira a URL do repositório:
+     ```plaintext
+     https://github.com/Sanyahu-Designer/Biblia-Aramaico-Portugues.git
+     ```
+   - Escolha uma pasta local para salvar o projeto.
+
+3. Abra o terminal integrado no VS Code (atalho `Ctrl + '` ou `Cmd + '` no Mac).
+
+4. Navegue até o diretório do projeto:
+   ```bash
+   cd Biblia-Aramaico-Portugues
+   ```
+
+5. Instale as dependências:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+6. Configure o banco de dados MariaDB:
+   - Certifique-se de que o MariaDB está instalado e em execução.
+   - Crie um banco de dados para o projeto e configure as credenciais no arquivo `settings.py`.
+
+7. Crie as migrações:
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+
+8. Inicie o servidor:
+   ```bash
+   python manage.py runserver
+   ```
+
+9. Acesse a aplicação no seu navegador: `http://localhost:8000`
 
 ## 🤝 Contribuições
 
