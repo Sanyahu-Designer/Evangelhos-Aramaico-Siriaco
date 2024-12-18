@@ -42,7 +42,7 @@ Este projeto apresenta uma tradução dos Evangelhos do Aramaico Siríaco para o
    - Clique em `Clonar Repositório`.
    - Insira a URL do repositório:
      ```plaintext
-     https://github.com/Sanyahu-Designer/Biblia-Aramaico-Portugues.git
+     https://github.com/Sanyahu-Designer/Evangelhos-Aramaico-Siriaco.git
      ```
    - Escolha uma pasta local para salvar o projeto.
 
