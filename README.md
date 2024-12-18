@@ -5,6 +5,10 @@
 
 Este projeto apresenta uma tradução dos Evangelhos do Aramaico Siríaco para o Português do Brasil, com o objetivo de fornecer uma versão acessível e fiel aos textos originais. Desenvolvido com Django, este projeto busca oferecer uma experiência de leitura moderna e intuitiva.
 
+## ✨ Site Oficial (Domonstração)
+
+<a href="https://evangelhos.netsarym.com.br">Evangelhos Aramaico Siríaco</a>
+
 ## ✨ Funcionalidades Principais
 
 - **Tradução Direta:** Textos traduzidos diretamente do Aramaico Siríaco para o Português do Brasil, garantindo a maior fidelidade possível aos manuscritos originais.
@@ -43,7 +47,7 @@ Este projeto apresenta uma tradução dos Evangelhos do Aramaico Siríaco para o
 4.  Crie as migrações:
     ```bash
     python manage.py makemigrations
-        python manage.py migrate
+    python manage.py migrate
         ```
 5.  Inicie o servidor:
     ```bash
