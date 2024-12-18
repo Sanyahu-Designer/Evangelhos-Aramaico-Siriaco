@@ -53,3 +53,6 @@ npm-debug.log*
 
 # Arquivos específicos do Jazzmin (personalizações locais ou dependências)
 jazzmin/
+
+
+!.env.example
