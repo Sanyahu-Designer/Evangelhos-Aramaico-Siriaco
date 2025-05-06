@@ -1,0 +1,29 @@
+/* Garantir que os badges sejam exibidos corretamente */
+.badge {
+    display: inline-block !important;
+    padding: 0.25em 0.4em !important;
+    font-size: 75% !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    vertical-align: baseline !important;
+    border-radius: 0.25rem !important;
+    margin-left: 0.5rem !important;
+}
+
+.bg-primary {
+    background-color: #0d6efd !important;
+    color: white !important;
+}
+
+/* Melhorar o alinhamento do badge com o título */
+.verse-title-container {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+}
+
+.verse-reference {
+    margin-right: 0.5rem !important;
+}

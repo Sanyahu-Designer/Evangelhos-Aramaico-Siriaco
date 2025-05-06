@@ -1,0 +1,41 @@
+/* 
+ * Estilos específicos para a página de categorias
+ * Este arquivo sobrescreve completamente os estilos do tema para os cabeçalhos dos cards
+ */
+
+/* Sobrescrever os estilos do tema claro */
+[data-bs-theme="light"] .card-header {
+    background-color: #346dc1 !important;
+    color: white !important;
+    border-bottom: none !important;
+}
+
+/* Sobrescrever os estilos do tema escuro */
+[data-bs-theme="dark"] .card-header {
+    background-color: #346dc1 !important;
+    color: white !important;
+    border-bottom: none !important;
+}
+
+/* Garantir que o texto e os ícones sejam sempre visíveis */
+.card-header h2,
+.card-header .h5,
+.card-header i {
+    color: white !important;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Estilos específicos para o tema claro */
+[data-bs-theme="light"] .card-header h2,
+[data-bs-theme="light"] .card-header .h5,
+[data-bs-theme="light"] .card-header i {
+    color: white !important;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Estilos específicos para o tema escuro */
+[data-bs-theme="dark"] .card-header h2,
+[data-bs-theme="dark"] .card-header .h5,
+[data-bs-theme="dark"] .card-header i {
+    color: white !important;
+}

@@ -1,0 +1,67 @@
+.verse-actions .btn {
+    padding: 0.25rem 0.5rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.verse-actions .btn i {
+    font-size: 1rem;
+}
+
+.verse-actions .btn:hover {
+    transform: translateY(-1px);
+}
+
+.verse-card {
+    border: 1px solid rgba(0,0,0,.125);
+    box-shadow: 0 2px 4px rgba(0,0,0,.05);
+    margin-bottom: 1.5rem;
+}
+
+.verse-header {
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    padding: 1rem;
+}
+
+.verse-content {
+    padding: 1.25rem;
+}
+
+.hebrew-font {
+    font-family: 'Estrangelo Edessa', serif !important;
+    direction: rtl;
+    text-align: right;
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.navigation-buttons {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0,0,0,.125);
+}
+
+.btn-outline-primary {
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-outline-primary:hover {
+    transform: translateY(-1px);
+}
+
+/* Feedback visual para ações */
+.copy-verse.copied,
+.print-verse.printing {
+    background-color: #198754;
+    color: white;
+    border-color: #198754;
+}
+
+/* Preload font */
+@font-face {
+    font-family: 'Estrangelo Edessa';
+    src: url('/static/fonts/estrangelo-edessa.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

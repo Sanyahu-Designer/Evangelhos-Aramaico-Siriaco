@@ -1,0 +1,228 @@
+.navbar {
+    padding: 0.5rem 1rem;
+    background-color: var(--bs-primary);
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+.nav-link:hover {
+    color: #fff;
+}
+
+.search-wrapper {
+    position: relative;
+}
+
+.search-container {
+    position: relative;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.search-container .input-group {
+    background-color: var(--bs-body-bg);
+    border-radius: 0.375rem;
+}
+
+.search-container input {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    border: none;
+    padding-right: 2.5rem;
+}
+
+.search-container input:focus {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    box-shadow: none;
+}
+
+.search-container button {
+    color: var(--bs-body-color);
+    opacity: 0.65;
+    padding: 0.375rem 0.75rem;
+}
+
+.search-container button:hover {
+    color: var(--bs-body-color);
+    opacity: 1;
+}
+
+.search-results {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 1rem;
+    right: 1rem;
+    background: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1050;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.search-results.show {
+    display: block;
+}
+
+.search-results .list-group {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.search-results .list-group-item {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    padding: 0.75rem 1rem;
+    color: var(--bs-body-color);
+    background: transparent;
+}
+
+.search-results .list-group-item:first-child {
+    border-top: none;
+}
+
+.search-results .list-group-item:last-child {
+    border-bottom: none;
+}
+
+.search-results .list-group-item:hover {
+    background-color: var(--bs-tertiary-bg);
+}
+
+/* Mobile */
+@media (max-width: 991.98px) {
+    .navbar-right {
+        display: none;
+    }
+
+    .navbar-right.show {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem 0;
+        gap: 0.5rem;
+    }
+
+    .search-container {
+        width: 100%;
+    }
+
+    .search-results {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: auto;
+        max-height: 60vh;
+        margin: 0;
+        border-radius: 20px 20px 0 0;
+        overflow-y: auto;
+    }
+
+    .search-results::before {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 4px;
+        background: var(--bs-border-color);
+        border-radius: 2px;
+        margin: 10px auto;
+    }
+}
+
+/* Ajustes para tema escuro */
+[data-bs-theme="dark"] .search-container input,
+[data-bs-theme="dark"] .search-container button {
+    background-color: var(--bs-dark);
+    border-color: var(--bs-border-color);
+    color: var(--bs-body-color);
+}
+
+[data-bs-theme="dark"] .search-results {
+    background: var(--bs-dark);
+    border-color: var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .search-results .list-group-item {
+    color: var(--bs-body-color);
+    border-color: var(--bs-border-color);
+}
+
+/* Animações */
+.search-results {
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.search-results.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ajustes para desktop */
+@media (min-width: 992px) {
+    .desktop-search {
+        margin-right: 1rem;
+    }
+}
+
+/* Ajustes para mobile */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        padding: 1rem 0;
+    }
+
+    .desktop-search {
+        display: none !important;
+    }
+
+    #mobile-search-input {
+        height: 48px;
+        font-size: 16px;
+    }
+
+    #mobile-search-results {
+        position: fixed;
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        max-height: 50vh;
+        border-radius: 1rem 1rem 0 0;
+        box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.15);
+        z-index: 1050;
+    }
+
+    #mobile-search-results .list-group-item {
+        padding: 1rem;
+    }
+}
+
+/* Esconder campo de pesquisa do desktop em mobile e vice-versa */
+@media (max-width: 991.98px) {
+    .desktop-search {
+        display: none !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .mobile-search {
+        display: none !important;
+    }
+}

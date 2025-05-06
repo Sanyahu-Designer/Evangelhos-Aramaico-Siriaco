@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório de Estatísticas - {{ banner_nome }}</title>
+    <style>
+        @page {
+            size: landscape;
+            margin: 2cm;
+        }
+        
+        body {
+            font-family: Arial;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 24pt;
+            margin: 0 0 10px 0;
+        }
+        
+        .meta-info {
+            color: #666;
+            font-size: 10pt;
+            margin-bottom: 20px;
+        }
+        
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 10pt;
+        }
+        
+        .stats-table th {
+            background-color: #34495e;
+            color: white;
+            padding: 12px;
+            font-weight: bold;
+            text-align: left;
+        }
+        
+        .stats-table td {
+            padding: 10px;
+            border: 1px solid #eee;
+        }
+        
+        .stats-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .total-row {
+            background-color: #34495e;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .stats-summary {
+            width: 100%;
+            margin: 30px 0;
+            display: table;
+        }
+        
+        .stat-card {
+            display: table-cell;
+            width: 33.33%;
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+        
+        .stat-value {
+            font-size: 24pt;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 10pt;
+            text-transform: uppercase;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            text-align: center;
+            font-size: 9pt;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Relatório de Estatísticas - {{ banner_nome }}</h1>
+        <div class="meta-info">
+            Período: {{ periodo }}<br>
+            Gerado em: {{ data_geracao }}
+        </div>
+    </div>
+    
+    <div class="stats-summary">
+        <div class="stat-card">
+            <div class="stat-label">Total de Visualizações</div>
+            <div class="stat-value">{{ total_views }}</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Total de Clicks</div>
+            <div class="stat-value">{{ total_clicks }}</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">CTR Médio</div>
+            <div class="stat-value">{{ total_ctr }}</div>
+        </div>
+    </div>
+    
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Banner</th>
+                <th>Visualizações</th>
+                <th>Clicks</th>
+                <th>CTR</th>
+                <th>Período de Atividade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in table_data %}
+            <tr {% if forloop.last %}class="total-row"{% endif %}>
+                <td>{{ row.0 }}</td>
+                <td>{{ row.1 }}</td>
+                <td>{{ row.2 }}</td>
+                <td>{{ row.3 }}</td>
+                <td>{{ row.4 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <div class="footer">
+        Bíblia em Aramaico - Todos os direitos reservados
+    </div>
+</body>
+</html>

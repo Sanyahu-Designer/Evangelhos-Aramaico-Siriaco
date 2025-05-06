@@ -1,0 +1,82 @@
+/* Morphological Analysis Styles */
+.word-analysis-modal {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.analysis-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.analysis-section:last-child {
+    border-bottom: none;
+}
+
+.analysis-section h6 {
+    color: #4682b4;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.definition-box {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+}
+
+.related-words {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.related-word {
+    background: #e9ecef;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.related-word small {
+    color: #6c757d;
+    margin-left: 0.25rem;
+}
+
+.occurrences-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.occurrence-item {
+    padding: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.occurrence-item:last-child {
+    border-bottom: none;
+}
+
+.occurrence-item .reference {
+    color: #4682b4;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.etymology-box,
+.notes-box {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+/* Aramaic text specific styles */
+.aramaic-text {
+    font-family: 'Estrangelo Edessa', serif;
+    direction: rtl;
+    font-size: 1.2em;
+    line-height: 1.5;
+}

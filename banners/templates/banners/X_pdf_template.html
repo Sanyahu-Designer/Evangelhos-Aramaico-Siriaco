@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório de Estatísticas - {{ banner_nome }}</title>
+    <style>
+        @page {
+            margin: 2cm;
+        }
+        
+        body {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 12pt;
+            line-height: 1.6;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background: #eee;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 18pt;
+        }
+        
+        .meta-info {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .stats-cards {
+            margin: 20px 0;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .stats-cards td {
+            width: 33.33%;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #000;
+        }
+        
+        .stat-label {
+            font-weight: bold;
+        }
+        
+        .stat-value {
+            font-size: 16pt;
+            margin: 10px 0;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 10pt;
+        }
+    </style>
+</head>
+<body>
+    <h1>Relatório de Estatísticas - {{ banner_nome }}</h1>
+    
+    <div class="meta-info">
+        Período: {{ periodo }}<br>
+        Gerado em: {{ data_geracao }}
+    </div>
+    
+    <table class="stats-cards">
+        <tr>
+            <td>
+                <div class="stat-label">Total de Visualizações</div>
+                <div class="stat-value">{{ total_views }}</div>
+            </td>
+            <td>
+                <div class="stat-label">Total de Clicks</div>
+                <div class="stat-value">{{ total_clicks }}</div>
+            </td>
+            <td>
+                <div class="stat-label">CTR Médio</div>
+                <div class="stat-value">{{ total_ctr }}</div>
+            </td>
+        </tr>
+    </table>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Banner</th>
+                <th>Visualizações</th>
+                <th>Clicks</th>
+                <th>CTR</th>
+                <th>Período de Atividade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in table_data %}
+            <tr {% if forloop.last %}style="font-weight: bold; background: #eee;"{% endif %}>
+                <td>{{ row.0 }}</td>
+                <td>{{ row.1 }}</td>
+                <td>{{ row.2 }}</td>
+                <td>{{ row.3 }}</td>
+                <td>{{ row.4 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <div class="footer">
+        Bíblia em Aramaico - Todos os direitos reservados
+    </div>
+</body>
+</html>

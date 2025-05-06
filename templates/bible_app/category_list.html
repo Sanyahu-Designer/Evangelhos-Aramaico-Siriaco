@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">{{ title }}</h1>
+    
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for category in categories %}
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-header" style="background-color: {{ category.color }}; color: white;">
+                    <h2 class="h5 mb-0">
+                        <i class="bi {{ category.icon }}"></i> {{ category.name }}
+                    </h2>
+                </div>
+                <div class="card-body">
+                    {% if category.description %}
+                    <p>{{ category.description }}</p>
+                    {% else %}
+                    <p class="text-muted">Sem descrição disponível.</p>
+                    {% endif %}
+                    
+                    <p class="text-muted">
+                        <strong>{{ category.verse_count }}</strong> versículo{{ category.verse_count|pluralize }} nesta categoria
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a href="/categories/{{ category.id }}/" class="btn btn-outline-primary">
+                        Ver versículos
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info">
+                Nenhuma categoria de conteúdo foi criada ainda.
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

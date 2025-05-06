@@ -1,0 +1,34 @@
+@font-face {
+    font-family: 'CustomSans';
+    src: url('/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CustomSans';
+    src: url('/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+body {
+    font-family: 'CustomSans', sans-serif;
+    font-size: 12pt;
+    line-height: 1.6;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'CustomSans', sans-serif;
+    font-weight: bold;
+}
+
+table {
+    font-family: 'CustomSans', sans-serif;
+    font-size: 10pt;
+}
+
+th {
+    font-weight: bold;
+}

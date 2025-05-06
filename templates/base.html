@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="h-100">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manuscritos em Aramaico traduzidos para o português">
+    <meta name="keywords" content="bíblia aramaico, evangelhos aramaicos, manuscritos aramaicos, traduções aramaico, aramaico português, evangelhos originais">
+    <meta name="author" content="Yosef Chaim e Netzer Netzarim">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:title" content="{% block og_title %}{% endblock %} Evangelhos Aramaico Siríaco">
+    <meta property="og:description" content="{% block og_description %}Manuscritos em Aramaico traduzidos para o português{% endblock %}">
+    <meta property="og:image" content="{% static 'img/favicon-32x32.png' %}">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{% block twitter_title %}{% endblock %} Evangelhos Aramaico Siríaco">
+    <meta name="twitter:description" content="{% block twitter_description %}Manuscritos em Aramaico traduzidos para o português{% endblock %}">
+    <meta name="twitter:image" content="{% static 'img/favicon-32x32.png' %}">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N5GMR02GT7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N5GMR02GT7');
+    </script>
+
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Evangelhos Aramaico Siríaco",
+        "description": "Manuscritos em Aramaico traduzidos para o português",
+        "url": "{{ request.build_absolute_uri }}"
+    }
+    </script>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
+    
+    <title>{% block title %}{% endblock %} Evangelhos Aramaico Siríaco</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/banner.css' %}" rel="stylesheet">
+    <link href="{% static 'bible_app/css/search.css' %}" rel="stylesheet">
+    <link href="{% static 'css/category_override.css' %}" rel="stylesheet">
+    <link href="{% static 'css/badge_fix.css' %}" rel="stylesheet">
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="d-flex flex-column h-100">
+    {% csrf_token %}
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'bible_app:home' %}">Evangelhos Aramaico Siríaco</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <button type="button" class="btn-close d-lg-none close-menu" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-label="Fechar menu"></button>
+                    <div class="d-flex justify-content-center flex-grow-1">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'bible_app:home' %}">
+                                    <i class="bi bi-book"></i> Versículos
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'bible_app:manuscripts' %}">
+                                    <i class="bi bi-file-text"></i> Manuscritos
+                                </a>
+                            </li>
+                            <!-- Link para Categorias reativado com link direto para evitar problemas de URL -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="/categories/">
+                                    <i class="bi bi-bookmark"></i> Categorias
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'dictionary:home' %}">
+                                    <i class="bi bi-journal-text"></i> Dicionário
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <ul class="navbar-nav ms-auto">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                    <i class="bi bi-person-circle"></i>
+                                    {{ user.username }}
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    {% if user.is_staff %}
+                                    <li>
+                                        <a class="dropdown-item" href="/admin/">
+                                            <i class="bi bi-gear"></i> Administração
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    {% endif %}
+                                    <li>
+                                        <form method="post" action="{% url 'admin:logout' %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="dropdown-item">
+                                                <i class="bi bi-box-arrow-right"></i> Sair
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        {% endif %}
+                        <li class="nav-item">
+                            <button class="btn nav-link" id="themeToggle">
+                                <i class="bi bi-moon-stars"></i> Tema
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        {% block search_bar %}{% endblock %}
+
+        {% if messages %}
+            <div class="alert alert-success">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        {% block banner %}{% endblock %}
+    </header>
+
+    <!-- Conteúdo -->
+    <main>
+        <div class="container-fluid py-4">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center">
+            <span>Todos os direitos reservados &copy; {% now "Y" %} | Tradutores: Yosef Chaim e Netzer Netzarim | Desenvolvido por <a href="https://sanyahudesigner.com.br" target="_blank">Sanyahu Designer</a></span>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Theme Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const icon = themeToggle.querySelector('i');
+            const html = document.documentElement;
+            
+            // Carregar tema salvo
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            applyTheme(savedTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                applyTheme(newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+            
+            function applyTheme(theme) {
+                // Aplicar tema em elementos principais
+                document.documentElement.setAttribute('data-bs-theme', theme);
+                
+                // Aplicar tema em elementos específicos
+                const elementsToTheme = document.querySelectorAll('.card, .translator-note, .navbar, .footer, .verse-card, .verse-header, .verse-content');
+                elementsToTheme.forEach(element => {
+                    element.setAttribute('data-bs-theme', theme);
+                });
+                
+                // Atualizar ícone
+                icon.className = theme === 'light' ? 'bi bi-moon-stars' : 'bi bi-sun';
+                
+                // Atualizar classes do navbar e footer
+                const navbar = document.querySelector('.navbar');
+                const footer = document.querySelector('.footer');
+                
+                if (theme === 'dark') {
+                    navbar.classList.add('navbar-dark');
+                    navbar.classList.remove('navbar-light');
+                    footer.classList.add('footer-dark');
+                } else {
+                    navbar.classList.add('navbar-light');
+                    navbar.classList.remove('navbar-dark');
+                    footer.classList.remove('footer-dark');
+                }
+            }
+        });
+    </script>
+    
+    {% block extra_js %}{% endblock %}
+    <!-- Banner Manager -->
+    <script src="{% static 'js/banner-manager.js' %}"></script>
+    <style>
+        .close-button::before {
+            content: none !important;
+        }
+        .close-button::after {
+            content: none !important;
+        }
+    </style>
+</body>
+</html>

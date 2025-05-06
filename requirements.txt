@@ -1,0 +1,15 @@
+asgiref==3.8.1
+Django==5.1.2
+django-jazzmin==3.0.1
+mysql-connector-python==9.1.0
+PyMySQL==1.1.1
+python-decouple==3.8
+sqlparse==0.5.1
+whitenoise==6.6.0
+Pillow==10.2.0
+requests==2.31.0
+weasyprint==52.5
+cairocffi==1.6.1
+cssselect2==0.7.0
+tinycss2==1.2.1
+reportlab==4.4.0

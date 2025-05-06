@@ -1,0 +1,148 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block extrastyle %}
+<style>
+    .visualizacoes-container {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .actions-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+    }
+    
+    .filters {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .filter-group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .filter-group select,
+    .filter-group input {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    
+    .btn-export {
+        background-color: #007bff;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 4px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .btn-export:hover {
+        background-color: #0056b3;
+        color: white;
+        text-decoration: none;
+    }
+    
+    .visualizacoes-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .visualizacoes-table th,
+    .visualizacoes-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .visualizacoes-table th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+    }
+    
+    .visualizacoes-table tr:hover {
+        background-color: #f8f9fa;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="visualizacoes-container">
+    <div class="actions-bar">
+        <div class="filters">
+            <div class="filter-group">
+                <label for="data">Data:</label>
+                <input type="date" id="data" name="data" value="{{ data_atual|date:'Y-m-d' }}">
+            </div>
+            <div class="filter-group">
+                <label for="banner">Banner:</label>
+                <select id="banner" name="banner">
+                    <option value="">Todos</option>
+                    {% for banner in banners %}
+                    <option value="{{ banner.id }}" {% if banner.id == banner_selecionado %}selected{% endif %}>
+                        {{ banner.nome_cliente }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button class="btn btn-primary" onclick="pesquisar()">
+                <i class="fas fa-search"></i> Pesquisar
+            </button>
+        </div>
+        <a href="{% url 'banners:banner_stats_pdf' %}" class="btn-export">
+            <i class="fas fa-file-pdf"></i>
+            Exportar PDF
+        </a>
+    </div>
+
+    <table class="visualizacoes-table">
+        <thead>
+            <tr>
+                <th>Banner</th>
+                <th>Data/Hora</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for view in visualizacoes %}
+            <tr>
+                <td>{{ view.banner.nome_cliente }}</td>
+                <td>{{ view.timestamp|date:"d/m/Y H:i:s" }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2" style="text-align: center;">Nenhuma visualização encontrada</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+function pesquisar() {
+    const data = document.getElementById('data').value;
+    const banner = document.getElementById('banner').value;
+    
+    let url = window.location.pathname + '?';
+    if (data) url += `data=${data}&`;
+    if (banner) url += `banner=${banner}&`;
+    
+    window.location.href = url;
+}
+</script>
+{% endblock %}

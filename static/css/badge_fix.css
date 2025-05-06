@@ -1,0 +1,25 @@
+/* 
+ * Estilos para corrigir a exibição do badge na página de categorias
+ */
+
+/* Fazer o título e o badge ficarem na mesma linha */
+.verse-reference {
+    display: inline-block !important;
+    margin-right: 10px !important;
+    vertical-align: middle !important;
+}
+
+/* Estilizar o badge para ficar na mesma linha */
+.verse-header .badge {
+    display: inline-block !important;
+    vertical-align: middle !important;
+    position: relative !important;
+    top: -2px !important; /* Ajuste fino para alinhamento vertical */
+}
+
+/* Container para o título e o badge */
+.verse-title-container {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+}

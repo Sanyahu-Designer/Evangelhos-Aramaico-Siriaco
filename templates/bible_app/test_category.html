@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Teste de Categorias{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Teste de Categorias</h1>
+    
+    <p>Esta é uma página de teste para as categorias de conteúdo.</p>
+    
+    <div class="mt-4">
+        <a href="{% url 'bible_app:category_list' %}" class="btn btn-success">Ver Lista de Categorias</a>
+        <a href="/categories/" class="btn btn-info">Link Direto para Categorias</a>
+        <a href="{% url 'bible_app:home' %}" class="btn btn-primary">Voltar para Home</a>
+    </div>
+</div>
+{% endblock %}
