@@ -1,6 +1,6 @@
 # Evangelhos Aramaico Siríaco - Plataforma Digital
 
-![Logo do Projeto](/static/img/logo3-192x192.png)
+![Logo do Projeto](static/img/logo3-192x192.png)
 
 ## 📖 Sobre o Projeto
 
@@ -85,8 +85,8 @@ Este projeto foi desenvolvido por Sanyahu Designer, especialista em desenvolvime
 
 Para mais informações sobre este projeto ou para colaborações, entre em contato através de:
 
-- **Site**: [evangelhos.netsarym.com.br](https://evangelhos.netsarym.com.br)
-- **Email**: [contato@sanyahudesigner.com.br](mailto:contato@sanyahudesigner.com.br)
+- **Site**: [sanyahudesiner.com.br](https://sanyahudesiner.com.br)
+- **Email**: [arte@sanyahudesigner.com.br](mailto:arte@sanyahudesigner.com.br)
 
 ---
 
