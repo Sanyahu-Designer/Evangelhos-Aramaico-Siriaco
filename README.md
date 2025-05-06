@@ -1,4 +1,4 @@
-# Evangelhos Aramaico Siríaco - Plataforma Digital
+# Evangelhos Aramaico Siríaco
 
 <div align="center">
   <img src=".github/images/logo3-192x192.png" alt="Logo do Projeto" width="192">
